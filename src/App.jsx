@@ -1,13 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import { RecoilRoot } from 'recoil';
 import TodoList from './components/TodoList';
 
 function App() {
   return (
-    <div className='App'>
-      <p>Todo List with Recoil</p>
-      <TodoList />
-    </div>
+    <RecoilRoot>
+      <div className='App'>
+        <p>Todo List with Recoil</p>
+        <TodoList />
+      </div>
+    </RecoilRoot>
   );
 }
 
