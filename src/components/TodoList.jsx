@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { todoState } from '../state/atoms/TodoState';
+import Todo from './Todo';
 
 const TodoList = () => {
   const [todos, setTodos] = useRecoilState(todoState);
@@ -19,6 +20,10 @@ const TodoList = () => {
     setInputText('');
   };
 
+  const clearTodos = () => {
+    setTodos([]);
+  };
+
   return (
     <main>
       <input
@@ -28,11 +33,11 @@ const TodoList = () => {
         onChange={handleInput}
       />
       <button onClick={addTodo}>Add Todo</button>
-      <button>Clear Todos</button>
+      <button onClick={clearTodos}>Clear Todos</button>
 
       <ul>
         {todos.map((todo) => {
-          return <li key={todo.id}>{todo.text}</li>;
+          return <Todo key={todo.id} text={todo.text} id={todo.id} />;
         })}
       </ul>
     </main>
